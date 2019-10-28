@@ -1,0 +1,267 @@
+﻿<Window x:Class="WpfCalculator.Views.CalculatorView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfCalculator.Views"
+        xmlns:viewModel="clr-namespace:WpfCalculator.ViewModels"
+        mc:Ignorable="d"
+        Title="CalculatorView" Height="470" Width="800" Background="Black">
+    <Window.Resources>
+        <Style x:Key="BorderStyle" TargetType="Border">
+            <Setter Property="BorderBrush" Value="Green"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style x:Key="NumberButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="Green"/>
+        </Style>
+        <Style x:Key="OperationButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="Blue"/>
+        </Style>
+    </Window.Resources>
+    <Window.DataContext>
+        <viewModel:CalculatorViewModel/>
+    </Window.DataContext>
+    <Border
+        Style="{StaticResource BorderStyle}">
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+            <Border Style="{StaticResource BorderStyle}">
+                <StackPanel 
+            Grid.Column="0"
+            HorizontalAlignment="Center">
+                    <TextBox
+                Height="30"
+                Width="400"
+                Margin="20"
+                Text="{Binding DisplayContent}"
+                IsReadOnly="True"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Button
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Style="{StaticResource NumberButtonStyle}"
+                    Content="1"                    
+                    Command="{Binding ButtonNumberCommand}"
+                    CommandParameter="1"/>
+                        <Button
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Style="{StaticResource NumberButtonStyle}"
+                    Content="2"
+                    Command="{Binding ButtonNumberCommand}"
+                    CommandParameter="2"/>
+
+                        <Button
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    Style="{StaticResource NumberButtonStyle}"
+                    Content="3"
+                    Command="{Binding ButtonNumberCommand}"
+                    CommandParameter="3"/>
+                        <Button
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Style="{StaticResource NumberButtonStyle}"
+                    Content="4"
+                    Command="{Binding ButtonNumberCommand}"
+                    CommandParameter="4"/>
+                        <Button
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Style="{StaticResource NumberButtonStyle}"
+                    Content="5"
+                    Command="{Binding ButtonNumberCommand}"
+                    CommandParameter="5"/>
+                        <Button
+                    Grid.Column="2"
+                    Grid.Row="1"
+                    Style="{StaticResource NumberButtonStyle}"
+                    Content="6"
+                    Command="{Binding ButtonNumberCommand}"
+                    CommandParameter="6"/>
+                        <Button
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Style="{StaticResource NumberButtonStyle}"
+                    Content="7"
+                    Command="{Binding ButtonNumberCommand}"
+                    CommandParameter="7"/>
+                        <Button
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Style="{StaticResource NumberButtonStyle}"
+                    Content="8"
+                    Command="{Binding ButtonNumberCommand}"
+                    CommandParameter="8"/>
+                        <Button
+                    Grid.Column="2"
+                    Grid.Row="2"
+                    Style="{StaticResource NumberButtonStyle}"
+                    Content="9"
+                    Command="{Binding ButtonNumberCommand}"
+                    CommandParameter="9"/>
+                        <Button
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Style="{StaticResource NumberButtonStyle}"
+                    Content="."
+                    Command="{Binding ButtonNumberCommand}"
+                    CommandParameter="."/>
+                        <Button
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Style="{StaticResource NumberButtonStyle}"
+                    Content="0"
+                    Command="{Binding ButtonNumberCommand}"
+                    CommandParameter="0"/>
+                        <Button
+                    Grid.Column="2"
+                    Grid.Row="3"
+                    Style="{StaticResource NumberButtonStyle}"
+                    Content="CE"
+                    Command="{Binding ButtonNumberCommand}"
+                    CommandParameter="CE"/>
+
+                    </Grid>
+
+                    <StackPanel>
+                        <Button
+                    Height="40"
+                    Width="365"
+                    Margin="10"
+                    Content="Clear Display"
+                    FontSize="20"
+                    Background="Green"
+                    Command="{Binding ButtonNumberCommand}"
+                    CommandParameter="CD"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <Border 
+                Grid.Column="1"
+                Style="{StaticResource BorderStyle}">
+            <StackPanel Grid.Column="1">
+                <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Button
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Style="{StaticResource OperationButtonStyle}"
+                    Content="+"
+                    Command="{Binding ButtonOperationCommand}"
+                    CommandParameter="+"/>
+                <Button
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Style="{StaticResource OperationButtonStyle}"
+                    Content="Sin"
+                    Command="{Binding ButtonOperationCommand}"
+                    CommandParameter="Sin"/>
+                <Button
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Style="{StaticResource OperationButtonStyle}"
+                    Content="-"
+                    Command="{Binding ButtonOperationCommand}"
+                    CommandParameter="-"/>
+                <Button
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Style="{StaticResource OperationButtonStyle}"
+                    Content="Cos"
+                    Command="{Binding ButtonOperationCommand}"
+                    CommandParameter="Cos"/>
+                <Button
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Style="{StaticResource OperationButtonStyle}"
+                    Content="*"
+                    Command="{Binding ButtonOperationCommand}"
+                    CommandParameter="*"/>
+                <Button
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Style="{StaticResource OperationButtonStyle}"
+                    Content="Tan"
+                    Command="{Binding ButtonOperationCommand}"
+                    CommandParameter="Tan"/>
+                <Button
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Style="{StaticResource OperationButtonStyle}"
+                    Content="/"
+                    Command="{Binding ButtonOperationCommand}"
+                    CommandParameter="/"/>
+                <Button
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Style="{StaticResource OperationButtonStyle}"
+                    Content="^2"
+                    Command="{Binding ButtonOperationCommand}"
+                    CommandParameter="Sqr"/>
+                <Button
+                    Grid.Column="0"
+                    Grid.Row="4"
+                    Style="{StaticResource OperationButtonStyle}"
+                    Content="%"
+                    Command="{Binding ButtonOperationCommand}"
+                    CommandParameter="%"/>
+                <Button
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    Style="{StaticResource OperationButtonStyle}"
+                    Content="SqrRt"
+                    Command="{Binding ButtonOperationCommand}"
+                    CommandParameter="SqrRt"/>
+            </Grid>
+            <StackPanel>
+                <Button
+                    Height="40"
+                    Width="235"
+                    Margin="10"
+                    Content="="
+                    FontSize="20"
+                    Background="Blue"
+                    Command="{Binding ButtonOperationCommand}"
+                    CommandParameter="="/>
+            </StackPanel>           
+        </StackPanel> 
+        </Border>    
+        </Grid>
+    </Border>
+</Window>
